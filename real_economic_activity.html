@@ -1,0 +1,373 @@
+{% extends "economic_model/base.html"%}
+
+{% block head %}
+<title>Economic Model</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+{% endblock head %}
+
+{% block title %}
+  <h1 class="h2">Real Economic Activity</h1>
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+
+<strong>Overveiw</strong>
+<ul>
+  <li>Analysis of country aggregate economic activity</li>
+  <ul>
+    <li>actual vs potential output</li>
+    <li>labor vs capital inputs, determines employment, investments, and capital flows</li>
+    <li>factors that influces whether output across countries converge</li>
+    <li>National Accounts data and how its can be used to assess demand shoc</li>
+    <li>***the objective of countercyclical macro policies is to shorten the period where the economy is faceing output gap</li>
+  </ul>
+</ul>
+
+<p>Things to consider about economic activity</p>
+<ul>
+  <li>What is the potential output</li>
+  <li>What coponents of demand drive a countries level of output</li>
+  <li>is there an output gap</li>
+  <li>Can you identify source of demand shock?</li>
+</ul>
+
+<strong>Supply</strong>
+<ul>
+  <li>estimating the country's potential output</li>
+  <ul>
+    <li>good estimates of potential output are used to calculate the output gap and projecting GDP 3-5 years out.</li>
+  </ul>
+  <strong>Potential Output</strong>
+  <ul>
+    <li>Theoretical Form</li>
+    <ul>
+      <li>Y = Af(K,L)</li>
+      <ul>
+        <li>Y = aggregate real output</li>
+        <li>K = index of capital input per year</li>
+        <li>L = hours worked per year</li>
+        <li>A = total factor productivity (TFP). Often calucalated as residual</li>
+      </ul>
+    </ul>
+    <li>Functional Form</li>
+    <ul>
+      <li>Y = A*K<sup>&alpha;</sup>*L<sup>1-&alpha;</sup></li>
+      <ul>
+        <li>Y = aggregate real output</li>
+        <li>K = index of capital input per year</li>
+        <li>L = hours worked per year</li>
+        <li>A = total factor productivity (TFP). Often calucalated as residual</li>
+        <li>&alpha; = proportionate contribution of K to total input, usually assumed to be 0.3</li>
+      </ul>
+    </ul>
+    <li>Assumptions</li>
+    <ul>
+      <li>Constant Returns to scale = this is important because it means firms of any size can compete.</li>
+      <li>MPK and MPL are positive</li>
+      <li>second derivative is negative</li>
+    </ul>
+    <li>Estimating Potential Output</li>
+    <ul>
+      <li>Advanced Countries</li>
+      <ul>
+        <li>advanced countries have more capital per worker, higher K/L and better technology</li>
+        <li>A = Y/K<sup>&alpha;</sup>*L<sup>1-&alpha;</sup></li>
+        <li>A must be calcuated by residual</li>
+        <li><strong>Data for L is from hours of working aged population that would  be worked if a country werre able to employ its working-age population</strong></li>
+        <li><strong>Data for K reflects the capital services used during the period but are proxied by the actual nonresidential capital stock.</strong></li>
+        <li>the future path of potential output per worker depends on higher K/L (capital deepening)</li>
+        <ul>
+          <li></li>
+        </ul>
+        <li>Capitak Stock can be found where ?????</li>
+        <li>the time series need to be cyclically adjusted &rarr; CBO used unemplyment rate to adjust.</li>
+        <li>using a trend line on real GDP times series is a good approximation of potential output.</li>
+        <li>sudden rise in A could be a bubble instead of true growth in productivity. Cite GFC in Britan as example</li>
+      </ul>
+      <li>Developing Countries</li>
+      <ul>
+        <li>GDP Per Capita is used to compare across country. Advanced countries are expected to have higher GDP Per Cap</li>
+        <li><strong>Countries closed to foriegn capital</strong></li>
+        <ul>
+          <li>with little inflow of foreign capital, developing counties need to rely on savings rate to increase K/L</li>
+          <li>With countries closed to foreign investmnet, convergence can occur </li>
+          <ul>
+            <li>raise savings rate to increase K/L</li>
+            <li>increase share of working age population</li>
+            <ul>
+              <li>higher employment &rarr; higher incomes &rarr; higher savings &rarr; higher investment &rarr; higher K/L</li>
+            </ul>
+            <li>raising TFP</li>
+            <li>institutional/governmental reform</li>
+          </ul>
+          <li>this proces is slow w/o foreign investment</li>
+        </ul>
+        <li><strong>Countries open to foriegn capital</strong></li>
+        <ul>
+          <li></li>
+        </ul>
+        <li>does convergence actually occur?</li>
+        <ul>
+          <li>study show that counties that start out with low per capita GDO do not grow faster than a country with higher initial level of per capita GDP.</li>
+          <li>some convergence may occur as model predicts if countries are more homogenous. Cite study from 50 US states</li>
+          <li>wide spread view that convergence is not absolute, and is conditional on structural elements of lower income country</li>
+        </ul>
+      </ul>
+    </ul>
+    <li><strong>TFP</strong></li>
+    <ul>
+      <li>determines how efficiently labor and capital can be combined to produce output</li>
+      <li>Components of TFP</li>
+      <ul>
+        <li>Technology</li>
+        <li>Infrastructure</li>
+        <li>Human Capital</li>
+        <li>Business enviorment and governance</li>
+        <ul>
+          <li>World Bank <i>Doing Business</i></li>
+        </ul>
+        <li>Political/economic stability</li>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<strong>Demand</strong>
+<ul>
+  <li>when demand drops retailer accumulate inventories unintentionally and employers cut demand and production capacity</li>
+  <li>cycle continues as more layoffs creates more insecurity and even more cuts in demand which lays off more workers</li>
+  <li>duration of cycle depends on:</li>
+  <ul>
+    <li>unquie circumstances</li>
+    <li>how quickly prices and wages adjust</li>
+    <li>countercyclical fiscal policies</li>
+    <li>countercyclical monetary policies</li>
+    <li>private sector expectations</li>
+  </ul>
+  <strong>Real GDP</strong>
+  <ul>
+    <li><strong>Income-Production Approach</strong></li>
+    <li><strong>Aggregate Expenditure Approach</strong></li>
+    <ul>
+      <li>everything produced leads to expenditure</li>
+      <strong>GDP = C + IF + IN + X - M</strong>
+      <li>C = consumption by private sector and government</li>
+      <li>IF = fixed investment by private sector and government</li>
+      <li>IN = inventory investment</li>
+      <li>X = exports</li>
+      <li>M = imports</li>
+    </ul>
+    <li>analysts are interested in strength of domestic demand, because domestic countercyclical measures have some degree of influence</li>
+    <li>therfore GDP can be re-written as</li>
+    <ul>
+      <strong>GDP = TDD + FB</strong>
+      <li>TDD = total domestic demand (C+IF+IN)</li>
+      <li>FB = foreign balance (X-M)</li>
+    </ul>
+    <li>total domestica demand breaks down into final domestic demand and inventory accumulation</li>
+    <li>inventory is normal low and can go negative</li>
+    <li>significant inventory accumulation (decumulation) signals a downturn (upturn) in GDP</li>
+    <ul>
+      <strong>TDD = FDD + IN</strong>
+      <li>FDD = Final Domenstic Demand (C + IF)</li>
+      <li>IN = inventory</li>
+    </ul>
+    <li>FDD can be broken down into private sector and government</li>
+    <ul>
+      <strong>FDD = C<sub>p</sub> + IF<sub>p</sub> + C<sub>g</sub> + IF<sub>g</sub></strong>
+      <li>C<sub>p</sub> = private consumption</li>
+      <li>IF<sub>p</sub> = private fixed investment</li>
+      <li>C<sub>g</sub> = government consumption</li>
+      <li>IF<sub>g</sub> = government fixed investment</li>
+    </ul>
+    <li>if C<sub>p</sub> and IF<sub>p</sub> are weak, C<sub>g</sub> and IF<sub>g</sub> may need to be raised</li>
+    <strong>Consumption</strong>
+    <ul>
+      <li>nondurable consumption</li>
+      <li>durable consumption</li>
+    </ul>
+    <strong>Investment</strong>
+    <ul>
+      <strong>Fixed Investment</strong>
+      <ul>
+        <li>spending on machinery & euipment</li>
+        <li>spending on buildings and infrastructure</li>
+      </ul>
+      <strong>Inventory Investment</strong>
+      <ul>
+        <li>spending on inventories</li>
+      </ul>
+    </ul>
+  </ul>
+  <strong>GNI/GNP</strong>
+  <ul>
+    <li>GDP covers trade in goods and services. it does not cover other sources of income from abroad or income paid to non residents</li>
+    <strong>GNI = GDP + NFI</strong>
+    <li>NFI = net factor income form abroad</li>
+    <ul>
+      <li>net income from labor services</li>
+      <ul>
+        <li>earnings from domestic residents working abroad - payments to foreign residents working domestically</li>
+      </ul>
+      <li>net income from capital services</li>
+      <ul>
+        <li>interest on loans made to foriengers - interest paid on foreign borrowing</li>
+      </ul>
+    </ul>
+    <li>for countries with a lot of remittances by residents working abroad the difference between GDP and GNI can be large</li>
+    <ul>
+      <li>Examples:</li>
+      <ul>
+        <li>Ireland has GDP > GNI because it send much income/profits abroad</li>
+        <li>Kuwait, oil exporter, has GNI > GDP because it has a lot of investments abroad and thus large interest earnings from foriegn investment</li>
+      </ul>
+    </ul>
+    <li>Gross National Disposable Income is GNI augmented by net transfers from abroad</li>
+    <strong>GNDI = GNI + TR</strong>
+    <li>Gross National Disposibale Inceom</li>
+    <li>TR = net transfers from abroad unrealted to factor earnings</li>
+    <ul>
+      <li>public foreign aid</li>
+      <li>private philanthropy</li>
+    </ul>
+    <li>this relates to the external accounts through the Current Account Balances and the BOP</li>
+    <strong>CAB = X - M + NFI + TR</strong>
+  </ul>
+</ul>
+<strong>Real Resource Constraint (RRC)</strong>
+<ul>
+  <li>a rearranged version of GNDI</li>
+  <li>domestic investment, which builds the capital stock for future production is constrained by resources available from domestic savings and foreign saving channled to domestic economy</li>
+  <li>RRC is the summary expression for the <strong>total amount of resources available for domestic investment</strong></li>
+  <strong>GNDI = C + I + CAB</strong>
+  <ul>
+    <li>I = IF + IN</li>
+  </ul>
+  <li>Gross National Savings is GNDI - C</li>
+  <strong>S  = GNDI - C = I + CAB</strong>
+  <ul>
+    <li>S = Gross National Savings</li>
+  </ul>
+  <li>Therefore the RRC,total amount of resources available for domestic investment, is I</li>
+  <strong>I = S - CAB</strong>
+  <ul>
+    <li>expressing CAB as surplus</li>
+  </ul>
+  <strong>I = S + CAB</strong>
+  <ul>
+    <li>expressing CAB as deficit</li>
+    <li>CAD = -CAB = current account deficit</li>
+  </ul>
+  <strong>Tools for analysis</strong>
+  <li><strong>Fiscal</strong></li>
+  <li>For fiscal policy analysis, you can disaggregate savings</li>
+  <strong>I = S<sub>p</sub> + S<sub>g</sub> + CAD</strong>
+  <ul>
+    <li>S<sub>p</sub> = private savings</li>
+    <li>S<sub>g</sub> = government savings</li>
+  </ul>
+  <li>you can focus on I<sub>p</sub> by removing I<sub>g</sub> from both sides of equation</li>
+  <ul>
+    <li>this says that a drop in government surplus (rise in gov defcit) must be matched by either a reduction in private investment or an increase in external current account, or higher private savings</li>
+  </ul>
+  <strong>I<sub>p</sub> = S<sub>p</sub> + GS + CAD</strong>
+  <ul>
+    <li>I<sub>p</sub> = total private investment (fixed + inventory)</li>
+    <li>GS = government surplus = S<sub>g</sub> - I<sub>g</sub></li>
+  </ul>
+  <li><strong>Demand</strong></li>
+  <li>FOr total domenstic demand analysis, TDD = C + IF + IN </li>
+  <ul>
+    <li>TDD is refered to as absorption in context of RRC</li>
+    <li>total consumption + investment</li>
+    <strong>CAD = CDA - CNDI</strong>
+    <ul>
+      <li>GDA = TDD = domestic absorption</li>
+      <li>the CAD is the difference between expenditure (absorption) and income</li>
+    </ul>
+  </ul>
+</ul>
+<strong>Note on Statisitical Descrepency</strong>
+<ul>
+  <li>BEA has this data.</li>
+  <li>savigs data is from income side of GDp and investmetnt comes from expediture side is they don't exactly equal due to different data sources and sample errors with out SD</li>
+  <li>Book depicts CAB ad Private S-I + SD + Government S-I</li>
+</ul>
+<strong>Examples</strong>
+<ul>
+  <li>Foreign Inflow Shock</li>
+  <ul>
+    <li>**** official aid to low income countries are reflected in the form of current transfers</li>
+    <li>goal of transfer is to raise per capita GDP</li>
+    <li>Once transfer to the foreign government is complete</li>
+    <ul>
+      <li>I<sub>p</sub> = S<sub>p</sub> + GS&uarr; + CAD&darr; </li>
+      <li>if money is spent on imports (medicine/tanks)</li>
+      <ul>
+        <li>GS and CAD go back to orignal level</li>
+      </ul>
+      <li>if money is spent on domestic non-traded goods that can't be imported (ie road building)</li>
+      <ul>
+        <li>GS rises with inflow but goes back to normal level</li>
+        <li>CAD goes down with inflow and stays down. no off set</li>
+        <li>with output gap remaing balance is taken up by higher savings, more private investment, and imports from workers on the project</li>
+        <li>with no output gap higher spending creates hire wages and prices</li>
+      </ul>
+    </ul>
+  </ul>
+  <li>Current Account Shock</li>
+  <ul>
+    <li>large increse in current account deficit</li>
+    <li>if country is able to borrow on international financial markets to finance a larger deficit may not be an issue (case for USA)</li>
+    <li>this senario assumes that debt is already high and exchange rates are not allowed to respond fully to market forces</li>
+    <li>CAD using BOP approach: focused on trade and income flows</li>
+    <ul>
+      <li>CAD = M - X - NFI - TR</li>
+      <li>identify which component of the deficit had moved sharply</li>
+    </ul>
+    <li>CAD using absoption approach</li>
+    <ul>
+      <li>CAD = ABS - GNDI</li>
+    </ul>
+    <li>CAD using absoption approach: output and absorption</li>
+    <ul>
+      <li>CAD = (I<sup>p</sup> - S<sup>p</sup>) + (I<sup>g</sup> - S<sup>g</sup>) = (I<sup>p</sup> - S<sup>p</sup>) - GS</li>
+      <li>this happens when CAD has clear counterpart in rising absoportion</li>
+      <li>determine if this was due to changes in government policy or cyclical conditions in private sector</li>
+    </ul>
+    <li>CAD using resource constrain approach approach: private and government I-S balances</li>
+    <ul>
+      <li>CAD = (I<sup>p</sup> - S<sup>p</sup>) + (I<sup>g</sup> - S<sup>g</sup>) = (I<sup>p</sup> - S<sup>p</sup>) - GS</li>
+    </ul>
+
+  </ul>
+</ul>
+
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+</div>
+{% endblock content %}
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for post in posts %}
+      <h1>{{ post.author }}</h1>
+      <p>{{ post.content }}</p>
+    {% endfor %}
+    <p>
+      <a href="md/">Model Development</a>
+    </p>
+  </body>
+</html> -->
