@@ -1,0 +1,176 @@
+{% extends "economic_model/base.html"%}
+
+{% block head %}
+<title>Economic Model</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+{% endblock head %}
+
+{% block title %}
+  <h1 class="h1">Active Management Notes</h1>
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+
+<h2>Arbitrage Pricing Theory</h2>
+<strong>Overview</strong>
+<ul>
+  <p>covering expected returns and valuations</p>
+  <p>Arbitrage Pricing Theory (APT) is an alternative to CAPM for forecasting expected returns</p>
+  <p>not appropriate for consensus expected returns (CAPM) but appropriate for a manager's expected return</p>
+  <p>the whole point of Arbitrage is to find an nearly risk free return. APT allows us to obtain this (pg 182)</p>
+</ul>
+
+<strong>Issues with CAPM</strong>
+<ul>
+  <li>CAPM in theory is the entire market of investmetns, but in practice it is just SP 500, so the CAPM can't exactly be valid</li>
+</ul>
+
+<strong>The APT</strong>
+<ul>
+  <li>APT states that each stock expected excess return is determined by the stocks factor exposure</li>
+  <li>it postulates a multiple-factor model of excess returns</li>
+</ul>
+<i>APT Model</i>
+<ul>
+  <strong> r<sub>n</sub> = &Sum;<sub>K</sub> X<sub>n,k</sub> * b<sub>k</sub> + u<sub>n</sub>   </strong>
+  <li>excess returns can be expressed using the following factor model</li>
+  <li>K = number of factors in model</li>
+  <li>X<sub>n,k</sub> = exposure of stock n to factor K. Factor loadings.</li>
+  <li>b<sub>k</sub> = factor returnws for factor k</li>
+  <li>u<sub>n</sub> = stock n specific return. the return that cannot be explained by the factors . idiosyncratic return of the stock</li>
+  <li>correlation of b and u of stock n should be 0</li>
+  <li>correlation of u of stock m and u of stock n should be 0</li>
+</ul>
+
+<i>Expected returns</i>
+<ul>
+  <strong>f<sub>n</sub> = E{r<sub>n</sub>} = &Sum;<sub>K</sub> X<sub>n,k</sub> * m<sub>k</sub></strong>
+  <li>m<sub>k</sub> = factor forcast for factor k</li>
+  <li>expected excess returns on any stock is determined by the stocks factor exposure and the factor forecasts assocaiated with those factors</li>
+  <li>Example</li>
+  <ul>
+    <li>the CAPM model is a one factor model</li>
+    <li>K = 1 </li>
+    <li>X<sub>n,1</sub> = &beta;<sub>n</sub></li>
+    <li>b<sub>k</sub> = return on benchmark</li>
+    <li>m<sub>1</sub> = f<sub>M</sub></li>
+  </ul>
+</ul>
+
+<strong>Portfolio Application to APT</strong>
+<ul>
+  <li>amoung and group of N stock there will be an effcient frontier for portfolios made up of the N risky stocks</li>
+  <li>Portfolio Q in the max on efficient frontier</li>
+</ul>
+
+<strong>Factor Models</strong>
+
+<i>Finding qualified models</i>
+<ul>
+  <li>a factor model is qualified if and only if portfolio Q is diversified w.r.t that factor model &rarr; among all portfolios w/ same factor exposure as Q, Q has min risk</li>
+  <li>this is commonly thought of as any factor model that captures the important differential modements in the stock will qualify</li>
+  <li><strong>**any factor model that is good at explaining the risk of a divsified portfolio should be nearly qualified as an APT model**</strong></li>
+</ul>
+
+<i>Factor Forecasts</i>
+<ul>
+  <li>forecasting m<sub>k</sub></li>
+  <p>Methods</p>
+  <ul>
+    <li>simpelest way is to take simple average of historical data of the factor</li>
+    <li>average of past data imply stationarity</li>
+    <li>example of factors</li>
+    <ul>
+      <li>12 month average of finance sector returns</li>
+      <li>12 average of earnings-to-price</li>
+      <li>bond market beta </li>
+    </ul>
+  </ul>
+</ul>
+
+<strong>Valuation in Theory</strong>
+<ul>
+  <li>stock values is derived from the risk adjusted cash flows an investor obtain form owning the stock.</li>
+</ul>
+
+<strong>Valuation in Practice</strong>
+<ul>
+<i>Dividened Discount Models</i>
+<ul>
+  <li>Certainty</li>
+  <li>Uncertainty</li>
+  <ul>
+    <strong>p(0) = &Sum;t d(t)/(1+y)<sup>t</sup></strong>
+    <li>y = risk adjusted discount rate</li>
+    <li>time when dividend is paid</li>
+    <li>Working the model</li>
+    <ul>
+      <li>Net present value</li>
+      <ul>
+        <li>any discrepency between model price p(0) and markekt price would imply oppurtunity for exceptional returns</li>
+      </ul>
+      <li><strong>Internal rate of return</strong> take p(0) and d(t) as given and solve for y</li>
+      <ul>
+        <li>and expected total rate of return give dividend and price</li>
+        <li>can also imply exceptional returns if it differs from consensus expected total returns i<sub>F</sub> + &beta;*f<sub>B</sub></li>
+      </ul>
+    </ul>
+  </ul>
+  <li>Constant growth dividend discount model</li>
+  <ul>
+    <strong>p(0) = d(1)/(y - g)</strong>
+    <li>g = dividend growth rate, constant</li>
+  </ul>
+  <li>Model of dividend growth rate, g</li>
+  <ul>
+    <li>expected rate of capital appreciation equals growth in the company's earnings per share and growth in company's dividends</li>
+    <li> g = (1 - k) * &rho;</li>
+    <li>d(t) = d(1) * (1 + g)<sup>t-1</sup></li>
+    <li>k = company payout ratio</li>
+    <li>&rho; = return on reinvested earnings</li>
+  </ul>
+  <li>Three Stage Dividend Discount Model</li>
+  <ul>
+    <li></li>
+  </ul>
+  <li></li>
+</ul>
+<i>Comparative Valuation</i>
+<ul>
+  <li>model that looks at  the current characteristics of a company and asking if company is fairly valued relative to other companies w/ similar characteristics</li>
+  <li>Simple Examples</li>
+  <ul>
+    <li>Compare on current price to earnings ratio</li>
+    <li>"Consulting firsm sell for two times revenue and Asset managemetn sell for 5% of assets"</li>
+  </ul>
+  <li>Model Based Comparative Valuation</li>
+  <ul>
+    <li>model include book value, dividends, and earnings of company and is modeled using the dividen discount model</li>
+  </ul>
+</ul>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+</div>
+{% endblock content %}

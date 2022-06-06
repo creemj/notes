@@ -1,0 +1,383 @@
+{% extends "economic_model/base.html"%}
+
+{% block head %}
+<title>Economic Model</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+{% endblock head %}
+
+{% block title %}
+  <h1 class="h2">External Accounts</h1>
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+
+<strong>Overveiw</strong>
+<ul>
+  <li>How does a countries economy interact with the rest of the world?</li>
+  <li>Topics include:</li>
+  <ul>
+    <li>Reading the external flows (Blance of Payments) accounts and noting the main influences on each of its pricipal components.</li>
+    <li>Considering the stock accounts (net international investment postion) with special focus on external debt and official FX reserves</li>
+    <li>Understanding the 5 main types of macro issues for which external sector analytical tools are essential.</li>
+    <li>Analyzing external sustainability in terms of oth technical debt sustainability and broader characteristics of debt.</li>
+  </ul>
+  <li>Most economic crisis (menetary,exchange rate, fiscal, financial, etc.) entail large and unsustainable outflows in external accounts</li>
+</ul>
+<strong>Implications of external transactions</strong>
+<ul>
+  <li>the source of long-term strength or weakness of economic performance.</li>
+  <ul>
+    <li>through export market penetration as engine of growth</li>
+    <li>through excessive dependance on foreign financing of budget deficits as vulnerability</li>
+  </ul>
+  <li>the orgin of positive or negative shocks</li>
+  <ul>
+    <li>drop in cost of vital import (positive)</li>
+    <li>jump in risk premium in international market of country bond</li>
+  </ul>
+  <li>important shock absorber</li>
+  <ul>
+    <li>through external financing of imports to chusion domestic absorption against shortfalls in harvests</li>
+  </ul>
+</ul>
+<strong>Understanding the external accounts</strong>
+<ul>
+  <li>Two accounts represent external position of a country</li>
+  <ul>
+    <li>Balance of Payment (BOP)</li>
+    <ul>
+      <li>Flow of transactions (imports, exports, borrowing, investment)</li>
+    </ul>
+    <li>Net International Investment Position (NIIP)</li>
+    <ul>
+      <li>Stock of foreign assets owned by residents - stock of domestic assets owned by nonresidents</li>
+      <li>Measured at end of period</li>
+    </ul>
+  </ul>
+  <li><i>Must account for change in valuation of stock in addition to flow</i></li>
+  <ul>
+    <li>An flow can be net zero but the stock of assets flucuated due to one currency appreciating against the foreign partner.</li>
+  </ul>
+  <li>Often presented as ratios to GDP</li>
+  <li>Residency rather than citizenship matters</li>
+  <li>Genral government is defined as domestic resident</li>
+  <li>recored on accrual basis at market prices</li>
+  <li>merchandise exports/imports recorded on "free on board". excluding shipping and unsurance cost</li>
+  <li>payments for transportation and insurance recorded in the services account</li>
+  <li>For guide in classification - IMF's Balance of Payments and International Investment Position Manual</li>
+
+</ul>
+
+<strong>Balance of Payments (Flows)</strong>
+<br></br>
+<strong>CAB + KAB + NFB + E&O + RT = 0</strong>
+<br></br>
+<ul>
+  <li>trade in goods and services, factor income, anf financing of transactions</li>
+  <li>starting point for analyzing a countries relationship w/ ROW</li>
+  <li>Five main BOP groups:</li>
+  <ul>
+    <li><strong>Current account balance (CAB) (FRED: IEABC)</strong></li>
+    <ul>
+      <li>summarizes the balance transactions in goods and services and income flows</li>
+      <li>Includes:</li>
+      <ul>
+        <li><i>trade account:</i> receipts of goods exports - payments for goods imports</li>
+        <li><i>services account:</i> receipts of services exports - payments for services imports</li>
+        <ul>
+          <li>transportation, insurance, tourism, legal, medical services</li>
+        </ul>
+        <li><i>primary (net) income flows:</i> net income from temp labor, financial sources or assets</li>
+        <ul>
+          <li>labor income from residents temp abroad, interest, dividends, retained earnings, rental income on foreign property, grants/aides</li>
+        </ul>
+        <li><i>secondary income flows (current transfers):</i> gifts in kind, remittances, payments to meet obligations to internation orgs.</li>
+      </ul>
+      <li>Many times gross imports and exports are shown along w/ trade balance. Others are shown just in net terms</li>
+      <ul>
+        <li>Gross Import FRED: IEAMGS</li>
+        <li>Gross Export FRED: IEAXGS</li>
+        <li>Gross Income FRED: IEAXI</li>
+      </ul>
+    </ul>
+    <li><strong>Capital account balance (KAB) (FRED: IEABCP)</strong></li>
+    <ul>
+      <li>Includes:</li>
+      <ul>
+        <li>Unilateral transfers from or to non-residents that change the stock of the reciept country's financial/real assets</li>
+        <ul>
+          <li>development grants intended for fixed capital formation, debt forgivness intended for improvment rather than reorginization of debt</li>
+        </ul>
+        <li>Aqusition/disposal of nonproduced/ nonfinancial assets</li>
+        <ul>
+          <li>ownership of land, mineral resources, leases, marketing assets such as brands</li>
+        </ul>
+      </ul>
+    </ul>
+    <li><strong>Financial Account - Net financial balance excluding changes in official reserve holdings (NFB) (FRED: IEANLF)</strong></li>
+    <ul>
+      <li>transactions/exchange in financial instruments</li>
+      <li>can be charaterized in many ways but most common is a functional way to identify specifics charaterisitcs of financial flows and their sustanability</li>
+      <ul>
+        <li>Foreign direct investment (FDI)</li>
+        <ul>
+          <li>residents make an investment that gives an individual/business control/influence over the management of an enterprise in another country</li>
+          <li>significant control mean voting share of greater than 10 percent</li>
+          <li>includes debts flows from investor to enterprise if enterprise is direct investment affliate</li>
+        </ul>
+        <li>Portfolio Investment</li>
+        <ul>
+          <li>transactions in debt or equity securities other than those included in direct investment/reserve assets</li>
+          <li>easy to trade assets with liquid markets</li>
+        </ul>
+        <li>Financial derivatives (other than reserves) and employee stock options</li>
+        <ul>
+          <li>financial transactions w/ that are motivated by risk transfers rather than investment of funds</li>
+          <li>forward contracts and options trading are large portion of this</li>
+          <li>stock options are cross-boarder compensation and are included due to the option feature</li>
+          <li>often included in "Other investments" during presentations</li>
+        </ul>
+        <li>Other investments</li>
+        <ul>
+          <li>residual transactions not included in previous categories</li>
+          <li>direct lending/borrowing, trade credits, currency transactions, IMF credits, special drawing rights (SDR), nonsecuritize equity of < 10%</li>
+        </ul>
+      </ul>
+    </ul>
+    <li><strong>Net reserves loss of the central bank (RT)</strong></li>
+    <ul>
+      <li>changes in the reserve positon of the monetary authority that are avaiable for BOP financing and has influence on exchange rate</li>
+      <li>usually equal to the change in net foriegn assets in the central bank accounts w/ opposite sign</li>
+    </ul>
+    <li><strong>Net errors and omissions, sum statistical discrepancies + other balances (E&O) (FRED: IEASD)</strong></li>
+    <ul>
+      <li>Balancing item. In thoery CAB+KAB+NFB+RT should = 0</li>
+    </ul>
+  </ul>
+  <li>Overal Balance is usually shown as an aggragate balancing items by shifting RT to right side of equation below and switching the sign</li>
+  <li>***Important for countries that fix exchange rate because it shows how much FX central bank has to buy/sell to meet net supply/demand for FX</li>
+  <li>overall balance for free floating FX rates is likly to be close to zero. Differing mainly on interest earning on central bank reserves</li>
+</ul>
+<p>Using the blances</p>
+<ul>
+  <li>BOP projections are central to external risk assessments, so having a simple framework for judging projects is important.</li>
+  <li>An economist can be ask to model/forecast BOP</li>
+  <ul>
+    <li>Real Import/Exports:</li>
+    <ul>
+      <li>Measured in terms of constant dollars</li>
+      <li>large diversified producers respond positivly to world trade growth, negatively to cost increases relative to competitions, and positily to domestiv excess supply</li>
+      <li>small less diverse countries can face an infinate supply of foriegn demand.</li>
+      <li>Competitiveness is measured using domestic cost/price index (PPI)</li>
+      <li>this is essentially the volume of trade</li>
+    </ul>
+    <li>Nominal Import/Exports</li>
+    <ul>
+      <li>analysing the <strong>terms of trade</strong></li>
+      <li>FRED Terms of Trade W369RG3Q066SBEA from Table 1.8.6 BEA</li>
+      <li>trade prices are called unit values and are summarized as the terms of trade</li>
+      <ul>
+        <li>ratio of average price ofexports / average price of imports</li>
+        <li>terms of trade is exog execpt for large countries</li>
+        <li>large terms of trade allows for greater capacity to consume and invest.</li>
+      </ul>
+    </ul>
+    <li>Primary income depends on number of nationals working abroad.</li>
+    <li>aide flow are subject to prior commitment by foreign donors</li>
+    <li>FDIa depends on Competitiveness , taax incentives, political stability, supply chains</li>
+    <li>porfoli investment repond to changes yeild , investor sentiment, exchange rate expectation</li>
+  </ul>
+  <li><i>Bottom line</i>: The main value in examing flows is to appreciate when swings are unusally large. This may indicate data issue or deviation from noraml development.</li>
+</ul>
+<strong>Net International Investment Position (Stock)</strong>
+<br></br>
+<ul>
+  <li>an inclusive statement of a country's net claims on nonresidents</li>
+  <li>Balance sheets of sectors</li>
+  <ul>
+    <li>government, financial and non financial businesses, and households</li>
+  </ul>
+  <li>helps to understand how the flows affect the creditor and debtor positions between domestic and foreignresidents</li>
+  <li>has grown in importance relative to BOP flows recently as the source of economic and financial crises shift from current account to financial accounts.</li>
+  <li>Can find NIIP data in IMF Article IV consultation report</li>
+  <li>stock analysis focuses on two aggregates, External Debt & Foreign Exchange Reserves</li>
+  <ul>
+    <li>External Debt</li>
+    <ul>
+      <li>consolidation of external debt of all sectors of economy (Households, nonfinancial firms, government, banking system, non bank financial firms)</li>
+      <li>net external debt = residents debt liabilities to nonresidents less nonresidents debt liabilities to residents</li>
+      <li>External debt has higher risk than domestic debt because non residents live in places with differnt laws and politics, etc</li>
+      <li>Exchange rate issues. If debt is borrowed in domestic currency then nonresident is subject to exchange rate risk</li>
+      <li>often a source of vulnerability that can lead to a crisis.</li>
+    </ul>
+    <li>Central Bank (Foreign Exchange) Reserves</li>
+    <ul>
+      <li>comprise assets thqat are readily available to and controlled by monetary authority for meeting BOP financing needs and influencing the exchange rate</li>
+      <li>***analysis should be able to judge the adequecy of reserves</li>
+      <li>Gross Reserves</li>
+      <ul>
+        <p>Gross Reserves = FXH + MG + SDR + RPF + OA</p>
+        <li>Foreign exchange holdings <strong>(FX)</strong></li>
+        <ul>
+          <li>in US treasury bills or liquid short term assets</li>
+        </ul>
+        <li>Monetary gold holdings <strong>(MG)</strong> </li>
+        <li>Special drawing rights from IMF <strong>(SDR)</strong></li>
+        <li>Reserve positions at the IMF <strong>(RPF)</strong></li>
+        <ul>
+          <li>foreign currency amount that countries can access</li>
+        </ul>
+        <li>Other short-term assets in foriegn current <strong>(OA)</strong></li>
+        <ul>
+          <li>financial derivatives and central bank lending to non banks and residents</li>
+        </ul>
+      </ul>
+      <li>Net reserves</li>
+      <ul>
+        <p>Gross Reserves - central bank foreign exchange liabilities</p>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<strong>External Account Analysis</strong>
+<ul>
+  <li>Information from external accounts helps analyze five issues</li>
+  <ul>
+    <li>domestic growth, smoothing of economic activity after temporary shocks, competitiveness, repercussions from global imbalances, & vulnerability to crises</li>
+  </ul>
+  <li>Domestic Growth</li>
+  <ul>
+    <li>for small countries external accounts is part of the country growth model</li>
+    <li>external accounts are also needed to analyze the success of an export-driven growth strategy</li>
+    <li>Metrics</li>
+    <ul>
+      <li>***key measure of market penetration is ratio of country exports to world imports</li>
+      <li>aggregate export compared to world trade growth</li>
+      <li>exports of manufactured goods to world imports of manufactured goods</li>
+      <li>exports of manufactured goods to imports of manufacturing goods in the main market to which the country exports</li>
+      <li>net export in goods and services to growth</li>
+      <ul>
+        <li>Contribution of net exports to growth = [(CAB<sub>t</sub>-CAB<sub>t-1</sub>)/GNDI<sub>t-1</sub>]x 100</li>
+      </ul>
+    </ul>
+    <li>export growth can drive domestic production and current account surplus can result in an accumulation of financial wealth</li>
+  </ul>
+  <li>Domestic Stability</li>
+  <ul>
+    <li>equating success with falling current account deficit or rising surplus is misleading</li>
+    <li>large deficits or shriking surplus can help cushion negative shocks</li>
+    <li>external deficits can reflect a country drawing on foreign savings for benifical purposes</li>
+    <li>I = S - CAB</li>
+  </ul>
+  <li>Competitiveness</li>
+  <ul>
+    <li>we understand competitivness through cost and price measures adjusted by exchange rates</li>
+    <ul>
+      <li>aggregate price indices</li>
+      <li>prices of trades good raltive to price of non traded good</li>
+      <li>unit labor cost at home to unit labor cost abroad</li>
+    </ul>
+    <li>Real Effective Exchange Rates <strong>(REER)</strong></li>
+    <ul>
+      <li>the echange rate measure used to adjust</li>
+      <li>shows changes overtime but does not allude to whether level of competitvness is satisfactory</li>
+    </ul>
+    <li>Example: if REER is competivite but you have export growth higher than foriegn growth and CAD is widening then you can use external account to understand larger exports.</li>
+  </ul>
+  <li>Global Imbalances</li>
+  <ul>
+    <li>Understanding the ramification of deficits relative to surpluses in external accounts</li>
+    <li>large deficits matter more than large surplusses</li>
+    <li>all deficits in one country must be matched by a surplus in another</li>
+    <li>Deficits</li>
+    <ul>
+      <li>large deficits leasd to a depletion of reserves or a build up of debt, unless financed by FDI inflows</li>
+      <li>this can lead to a debt crises</li>
+      <li>Example:</li>
+      <ul>
+        <li>US had large fiscal deficits. savings relative to GDP were falling. theory is that this was the reason for CAD.</li>
+      </ul>
+    </ul>
+    <li>Surpluses</li>
+    <ul>
+      <li>Example:</li>
+      <ul>
+        <li>China purchased dollars and invested in US Treasuries. This artificialy held down the remembi and increased current account surplus.  </li>
+        <li>China purchases kept down US interest rates that increased demand in US. US imported goods and added to CAD</li>
+      </ul>
+    </ul>
+    <li>Concern about imbalances</li>
+    <ul>
+      <li>imbalances suggested that policy intervention inexchange rates would not adjust to equalibrum.</li>
+      <ul>
+        <li>appriaction in surplus countries and depreciate in deficit countries</li>
+      </ul>
+      <li>fear that imbalances would eventually adjust and it would be quick and disruptive</li>
+      <ul>
+        <li>collapse of dollar senario</li>
+      </ul>
+    </ul>
+    <li>Tools to use for analysis</li>
+    <ul>
+      <li>IMF - External Balance Assesment</li>
+      <li>https://www.imf.org/external/np/res/eba/data.htm</li>
+    </ul>
+  </ul>
+  <li>Vulnerability to crises</li>
+  <ul>
+    <li>most economic crises start from domestic factors and then can spill over into domestic accounts</li>
+    <li>crises can start ib global markets due to:</li>
+    <ul>
+      <li>shock to global risk aversion</li>
+      <li>contagian</li>
+    </ul>
+    <li>***external accounts should be analyzed:</li>
+      <ul>
+        <li>to asses the possibility of a domestic crises affting external markets,</li>
+        <li>to see if country's external position is adequate to withstand blobal/regional shocks</li>
+        <li></li>
+      </ul>
+    <li>strategy to analyze accounts for vulnerabilities</li>
+    <ul>
+      <li>in 1950 countries were small. CAD were financed by offical aide, foreign offical lending, etc. Crises happened when this money ran out</li>
+      <li>since 1970 crises stem from financial accounts. Countries rely on foriegn fianncing for CAD and become indebted to country</li>
+    </ul>
+    <li>models of external account crises</li>
+    <ul>
+      <li>when country heavily exposed to international capital markets with short term external debt, sentiment can change quickly</li>
+      <li>triggers:</li>
+      <ul>
+        <li>change in government, change in expected policy choices, problems at major banks/corps, perceived inability to sustain exchange rate stability, contaigion.</li>
+
+      </ul>
+    </ul>
+  </ul>
+</ul>
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+</div>
+{% endblock content %}
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for post in posts %}
+      <h1>{{ post.author }}</h1>
+      <p>{{ post.content }}</p>
+    {% endfor %}
+    <p>
+      <a href="md/">Model Development</a>
+    </p>
+  </body>
+</html> -->

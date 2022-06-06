@@ -1,0 +1,645 @@
+{% extends "economic_model/base.html"%}
+
+{% block head %}
+<title>Economic Model</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+{% endblock head %}
+
+{% block title %}
+  <h1 class="h2">Active Management Foundations</h1>
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+
+<strong>Overview</strong>
+<ul>
+  <p>Risk and expected returns are the key players in active management.</p>
+  <p>expected returns are total returns less the total returns on a risk-free asset over the same perios of time</p>
+</ul>
+
+<strong>Expected Returns</strong>
+<ul>
+  <p>CAPM is based on a theory that it is dubious to do active managment but it is used as a benchmark to beat.</p>
+  <p>Active management is hard and getting harder but not impossible as authors show.</p>
+  <p>books assumes CAPM is valid although there is debate for that</p>
+  <strong>CAPM</strong>
+  <ul>
+    <i>Overview</i>
+    <p></p>
+    <li>CAPM can be used to determine the consensus expected return for an asset.</li>
+    <li>these consensus return are valuable because they give us a standard of comparison.</li>
+    <li>the rturn of any stock can be separated into systematic (market) component and a residual.</li>
+    <li>CAPM assumes residual is zero.</li>
+    <li>there are other measures of expect returns.</li>
+    <ul>
+      <li>Historical Average Returns</li>
+      <ul>
+        <li>average return of stock over a period of time</li>
+        <li>this is a bad method</li>
+        <ul>
+          <li>historical returns contain a large amount of sample error</li>
+          <li>the universe of stocks change over time</li>
+        </ul>
+      </ul>
+      <li>Abitrage Pricing Theory</li>
+      <ul>
+        <li>this is useful but not considered the consensus expected return</li>
+      </ul>
+    </ul>
+    <li>the market portfolio is the consensus portfolio</li>
+    <p></p>
+    <i>Constructing CAPM</i>
+    <ul>
+      <li>M = market portfolio</li>
+      <li>P = any portfolio</li>
+      <li>r<sub>p</sub> = portfolio P excess returns</li>
+      <li>r<sub>m</sub> = market portfolio M excess returns</li>
+      <li>&beta;<sub>p</sub> = Cov(r<sub>p</sub>,r<sub>m</sub>)/Var(r<sub>m</sub>)</li>
+      <ul>
+        <li>market excess return component</li>
+        <li>market portfolio has &beta; = 1, risk-free assets have &beta; = 0</li>
+      </ul>
+      <li>&alpha;<sub>p</sub> = </li>
+      <li>&epsilon;<sub>p</sub> = </li>
+      <li>&theta;<sub>p</sub> = residual excess return component aka residual return</li>
+      <li>&sigma;<sup>2</sup><sub>p</sub> = &beta;<sup>2</sup><sub>p</sub>&sigma;<sup>2</sup><sub>M</sub> + &omega;<sup>2</sup><sub>p</sub></li>
+      <ul>
+        <li>variance of portfolio P</li>
+        <li></li>
+      </ul>
+      <li>&omega;<sup>2</sup><sub>p</sub> = residual variance of portfolio P ie. variance of &theta;</li>
+
+
+      <p>CAPM formula</p>
+      <ul>
+        <strong>r<sub>p</sub> = &alpha;<sub>p</sub> + &beta;<sub>p</sub>*r<sub>m</sub> + 	&epsilon;<sub>p</sub></strong>
+        <li>the &alpha; and &beta; from the regression is the historical alpha and beta.</li>
+        <li>historical beta is a resonable forecast of beta that will be in the future.</li>
+        <li>We can now break excess return on P into a market component and residual component.</li>
+        <strong>r<sub>p</sub> = &beta;<sub>p</sub>r<sub>m</sub> + &theta;<sub>p</sub></strong>
+        <li>&theta;<sub>p</sub> is the residual return and will be uncorrelated with market return</li>
+        <li>CAPM states that expected residual return is 0</li>
+        <li>this is due to assumption that all investors have same expectations and differ only on risk tolerance</li>
+      </ul>
+    </ul>
+    <i>CAPM Discussion</i>
+    <ul>
+      <li>CAPM says that some risks are nessesary and other risk are not.</li>
+      <li>market risk is nessesary, residual risk is self imposed</li>
+    </ul>
+    <i>CAPM Analysis</i>
+    <ul>
+      <li>Scatter Plot returns of stock to the market (SP 500)</li>
+      <li>use CAPM regression to get historical beta of stock (portfolio) and the standard error</li>
+      <li>then solve for &theta; by r<sub>p</sub> - &beta;<sub>p</sub>r<sub>m</sub></li>
+    </ul>
+  </ul>
+</ul>
+
+<strong>Risk</strong>
+<ul>
+  <i>Overview</i>
+  <ul>
+    <li>risk is the standard deviation of return</li>
+    <li>the cost of risk is proportional to variance</li>
+    <li>risk models identify the important sources of risk and separate risk into components</li>
+    <li>need an operation and universal impersonal definition of risk</li>
+    <li>goal is to forecast risk</li>
+  </ul>
+  <i>Risk Measures</i>
+  <ul>
+    <li>all definitions of risk arise fundamentally from the probability distribution of possible retunrs</li>
+    <li>goal is to understand the risk of the entire distribution by looking at 1 number</li>
+
+    <strong>Standard Deviation</strong>
+    <ul>
+      <li>spread of the distribution around its mean</li>
+      <li>aka volitility</li>
+      <li>** in normal distribution 2/3 of returns would lie in 1 standard devition of mean **</li>
+      <li>standard dev measures uncertaincy of return</li>
+      <li>you can forecast standard deviation</li>
+      <li>critism of stn dev</li>
+      <ul>
+        <li>critics of stn dev say it measures returns above and below mean when really they only care about negative returns or small retunrs</li>
+        <li>alt risk measures have been developed</li>
+        <ul>
+          <li>semivariance</li>
+          <ul>
+            <li>like variance but only below the mean</li>
+            <li>if returns are semetric then semivariance is exactly one-half the variance</li>
+          </ul>
+          <li>downside risk</li>
+          <ul>
+            <li>square root of semivariance</li>
+          </ul>
+          <li>target semivariance</li>
+          <ul>
+            <li>semivariance around a defined target other than the mean</li>
+          </ul>
+          <li>shortfall probability</li>
+          <ul>
+            <li>probability that the return will lie below some target amount</li>
+            <li>example: probability of monthly loss in portfolio in book of 10% was 3.4%</li>
+            <li>hard to forecast</li>
+          </ul>
+          <li>Value at Risk</li>
+          <ul>
+            <li>example: worst 1% of all returns exceeded 20% loss</li>
+            <li>with this example, a $1000 investment in fund had VaR of $208</li>
+          </ul>
+        </ul>
+      </ul>
+      <li>investment retunrs dont exactly follow normal distributions, the distributions are wider, ie probability of extreme events is higher</li>
+      <p></p>
+      <i>Calculating Standard Deveation of Portfolio</i>
+      <ul>
+        <strong>&sigma;<sub>p</sub> = &Sqrt;((w<sub>1</sub>*&sigma;<sub>1</sub>)<sup>2</sup>+ (w<sub>2</sub>*&sigma;<sub>2</sub>)<sup>2</sup> + 2 * (w<sub>1</sub>*&sigma;<sub>1</sub>)  * (w<sub>2</sub>*&sigma;<sub>2</sub>) * &rho;<sub>12</sub>)</strong>
+        <li>Example: Portfolio with 3 stocks w/ equal weight</li>
+        <table>
+          <th>Asset</th>
+          <th>Weight</th>
+          <th>Expected Return</th>
+          <tr>
+            <td>1</td>
+            <td>50%</td>
+            <td>20%</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>50%</td>
+            <td>30%</td>
+          </tr>
+          <tr>
+            <td>corr</td>
+            <td>.40</td>
+          </tr>
+        </table>
+        <p>&sigma;<sub>p</sub> = &Sqrt;((.5*.20)<sup>2</sup> + (.5*.30)<sup>2</sup> + 2 * (.5*.20)  * (.50*.30) * .40)</p>
+        <p>&sigma;<sub>p</sub> = 21.1%
+      </ul>
+      <p></p>
+      <i>Annualizing Risk</i>
+      <ul>
+        <strong>&sigma;<sub>annual</sub> = &Sqrt;12 * &sigma;<sub>monthly</sub></strong>
+      </ul>
+      <p></p>
+      <i>Relative Risk</i>
+      <ul>
+        <li>Active Return</li>
+        <li>portfolio returns r<sub>p</sub> are compared to the benchmark r<sub>B</sub></li>
+        <li>this difference is called the Active Return</li>
+        <li>r<sub>PA</sub> = r<sub>p</sub> - r<sub>B</sub></li>
+        <p></p>
+        <li>Active Risk</li>
+        <li>&psi;<sub>p</sub> = Std(r<sub>PA</sub>) = Std(r<sub>p</sub> - r<sub>B</sub>)</li>
+        <li>active risk is called <i>tracking error</i></li>
+        <ul>
+          <li>how well portfolio tracks the benchmark</li>
+        </ul>
+        <li>**active risk can be proportional to the capitalization of the asset**</li>
+        <li>incorporate this into app</li>
+        <li>example: if IBM is 4% of benchmark, investor may set position limits of 2% on low side and 6% on high side</li>
+        <li>this limits exposure of IBM to +- 2% of benchmark</li>
+        <li>but active risk depends on active exposure and stock risk pg 50</li>
+      </ul>
+      <p></p>
+      <i>Residual Risk</i>
+      <ul>
+        <li>risk of return orthogonal to the systematic return</li>
+        <li>example: residual risk of portfolio P relative to portfolio B (benchmark)</li>
+        <strong>&omega;<sub>p</sub> = &Sqrt;(&sigma;<sup>2</sup><sub>p</sub> - &beta;<sup>2</sup><sub>p</sub>*&sigma;<sup>2</sup><sub>B</sub>)</strong>
+        <li>&beta;<sub>p</sub> = Cov(r<sub>p</sub>,r<sub>B</sub>)/Var(r<sub>B</sub>)</li>
+      </ul>
+    </ul>
+    <p></p>
+  </ul>
+</ul>
+<strong>Risk Models</strong>
+<ul>
+  <li>a portfolio of 2 stocks is easy to calculate but when you had 100s of assets its get more difficult</li>
+  <p></p>
+  <i>Covariance Matrix</i>
+  <ul>
+    <li>summerizes all required estiamtes</li>
+  </ul>
+  <li><strong>the goal of a risk model is to accurately and efficently forecast the covariance matrix V</strong></li>
+  <p></p>
+  <i>Simple Stock Risk Models</i>
+  <ul>
+    <p>Single factor diagonal model</p>
+    <ul>
+      <li>each stock is assigned two components of risk</li>
+      <ul>
+        <li>market risk</li>
+        <li>residual risk</li>
+      </ul>
+      <li>returns are analyzed using:</li>
+      <ul>
+        <strong>r<sub>n</sub> = &beta;<sub>n</sub>*r<sub>M</sub> +  &theta;<sub>n</sub></strong>
+        <li>&beta;<sub>n</sub> = stock n beta</li>
+        <li>&theta;<sub>n</sub> = stock n residual return</li>
+      </ul>
+      <li>residual returns are correlated and must therefore for be negativly correlated (pg 53)</li>
+      <li>might expect positive correlation between stocks in same industry</li>
+      <li></li>
+    </ul>
+    <p>Risk Model 2</p>
+    <ul>
+      <li>all pairs of stocks have the same correlation</li>
+      <li>requires an estimate of each stocks risk &sigma; and correlation &rho; between them</li>
+      <li>easy to compute and helpful for "quick and dirty applications"</li>
+      <li>ignores linkages between stocks in similar industries and firms w/ common atrributes</li>
+    </ul>
+    <p>Risk Model 3</p>
+    <ul>
+      <li>full covariance model based on historical returns, variences, and covariances</li>
+      <li>historical approach requires T > N</li>
+      <li>historical data doesn't consider changing nature of companies, mergers, LBO, etc</li>
+    </ul>
+  </ul>
+  <i>Structural Risk Models</i>
+  <ul>
+    <li>multi - factor risk models is based on the notion that the return of a stock can be explained by</li>
+    <ul>
+      <li>collection of common factors</li>
+      <li>indiosyncratic elements that pertains to that particular stock</li>
+      <p><strong>** by identifying important factors we can reduce the size of the problem</strong></p>
+      <p><strong>instead of dealing with 6000 stocks and 18,003,000 independent variances, covariances, etc</strong></p>
+      <p><strong>we deal with 68 factors</strong></p>
+      <li>better to focus on a smaller number of factors and allow stocks to change their exposures to those factors</li>
+    </ul>
+    <li>start model by analyzing returns according to simple linear structure (pg 55)</li>
+    <ul>
+      <strong>r<sub>n</sub> = &sum;<sub>k</sub>X<sub>n,k</sub> * b<sub>k</sub> + u<sub>n</sub></strong>
+      <li>r<sub>n</sub> = excess return on stock n</li>
+      <li>X<sub>n,k</sub> = exposure of asset n to factor k. These are the X var inputs. standardize continus variables</li>
+      <li>b<sub>k</sub> = factor return to factor k</li>
+      <li>u<sub>n</sub> = stock n specific return. return that cannot be explained by the factors. indiosyncratic return</li>
+      <li>**not a causal model**</li>
+      <li>returns should depict the change in value from t to t+1. one period change. could be monthly etc. then you just do the one period change back in history to get your estimation data</li>
+      <li>factors must reflect the begining of the period. ie. the first period in the change in value to get the return because you need the info a priori</li>
+      <li><strong>Assume specific returns u<sub>n</sub> are not correlated with factor returns b<sub>k</sub></strong></li>
+      <li><strong>Assume specific returns u<sub>n</sub> are not correlated with each other</strong></li>
+    </ul>
+    <li>Once you have linear models for all assets decribed above you need to calulate the covariance matrix V of asset n and asset m</li>
+    <ul>
+      <strong>V <sub>n,m</sub> = &sum;<sub>k</sub> X<sub>n,k<sub>1</sub></sub> * F * X <sub>m,k<sub>2</sub></sub> + &Delta;<sub>n,m</sub></strong>
+      <p></p>
+      <li> Active Variance (fotnote pg 116)</li>
+      <ul>
+        <strong>&psi;<sup>2</sup><sub>P</sub> = h<sup>T</sup><sub>PA</sub> * V * h<sub>PA</sub></strong>
+        <li>&psi;<sup>2</sup> = active variance</li>
+        <li>h<sup>T</sup><sub>PA</sub></li>
+        <li>h<sub>PA</sub> = h<sub>P</sub> - h<sub>B</sub></li>
+        <ul>
+          <li>h<sub>P</sub> and h<sub>B</sub> are the holding in the mangaged and benchmark portfolios</li>
+        </ul>
+      </ul>
+      <li>The Risk models analyzes current portfolio risk</li>
+      <li>python/pseudo code to get to this point</li>
+      <ul>
+        <li>get excess returns from 2 assets (t - t-1) and the factors for the begining of the period.</li>
+        <table>
+          <th>Asset</th>
+          <th>Return</th>
+          <th>const</th>
+          <th>X1</th>
+          <th>X2</th>
+          <tr>
+            <td>1</td>
+            <td>10</td>
+            <td>1</td>
+            <td>1</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>50</td>
+            <td>1</td>
+            <td>0</td>
+            <td>20</td>
+          </tr>
+        </table>
+        <li>using python statsmod</li>
+        <li>import statsmodels.api as sm</li>
+        <li>Y = [10,50]</li>
+        <li>X = [[1,1,100],[1,0,20]]</li>
+        <li>results = sm.OLS (Y ~ X + &epsilon;).fit()</li>
+        <li>&beta; = [1,.3,.5]</li>
+        <li>Get F from the function</li>
+        <ul>
+          <li>F = results.cov_params &rarr; get the Covariance matrix of the &beta; hats </li>
+        </ul>
+        <li>Get &Delta;</li>
+        <ul>
+          <li>u = results.resid &rarr; get residuald from model</li>
+          <li>s = results.mse_resid &rarr; get sample standard deviation as estimate for &sigma;<sup>2</sup></li>
+          <li>H = (X'X)<sup>-1</sup>X'</li>
+          <li>I = np.identity(2) &rarr; identity matrix with N rows</li>
+          <li>&Delta; = s*(I - H)</li>
+        </ul>
+        <li>V = X*F*X' + &Delta;</li>
+
+
+
+      </ul>
+    </ul>
+    <p></p>
+    <li>Choosing the factors</li>
+    <ul>
+      <li>one key constraint: all factors must be a priori</li>
+      <li>example of risk indicies or non industry dimensions that differentiate stocks</li>
+      <ul>
+        <li>Volatility: stocks w/ high vol are expected to remain high vol</li>
+        <li>Momentum: distinguishes stocks by recent performance</li>
+        <li>Size: large stocks vs small stocks</li>
+        <li>Liquidity: how much shares trade</li>
+        <li>Growth: anticipated earnings growth</li>
+        <li>Value: cheap vs expensive w.r.t. fundamentals</li>
+        <li>Earnings volatility: </li>
+        <li>Financial Leverage: distinguishes firms by debt-to-equity ratio and exposure to interest rate risk.</li>
+        <li>there can be many data points or descriptors for each risk indices</li>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<p></p>
+<strong>Exceptional Returns, Benchmarks, & Added Value</strong>
+<p></p>
+<i>Overview</i>
+<ul>
+  <li>CAPM provides consensus expected returns</li>
+  <li>multi-factor model can help control risk</li>
+  <li>now we need accurate forecasts of expected retunrs</li>
+</ul>
+<p></p>
+<i>Benchmarks</i>
+<ul>
+  <li>active managers can be asked to outperform a benchmark that is not "the market"</li>
+  <li><strong>Active Return</strong> si the difference between return on the manger portfolio and return on the benchmark</li>
+  <li>We can still use beta from CAPM</li>
+  <li>&beta; = Cov(r<sub>n</sub>r<sub>b</sub>)/Var(r<sub>b</sub>)</li>
+  <li>Active Variance</li>
+</ul>
+<p></p>
+<i>Expected Return</i>
+<ul>
+  <li>i<sub>f</sub> = time premium &rarr; risk free component</li>
+  <ul>
+    <li>compensation for time. we know return on risk free aset so we can assign premium in advance</li>
+  </ul>
+  <li>&beta;<sub>n</sub> * &mu;<sub>B</sub> = risk premium &rarr; benchmark component</li>
+  <ul>
+    <li>&mu;<sub>B</sub> = consensus expected excess return on benchmark</li>
+    <li>forecasted at a very long time</li>
+  </ul>
+  <li>&beta;<sub>n</sub> * &Delta;f<sub>B</sub> = exceptional benchmark return &rarr; benchmark timing component</li>
+  <ul>
+    <li>&mu;<sub>B</sub> is forecasted at a very long time, if you think a short time is different that look at &Delta;f<sub>B</sub></li>
+    <li>&Delta;f<sub>B</sub> = differnece between expected excess return on the benchmark in near future and the long run</li>
+    <li></li>
+  </ul>
+  <li>&alpha;<sub>n</sub> = expected residual return &rarr; alpha</li>
+  <ul>
+    <li>&alpha;<sub>n</sub> = E{&theta;<sub>n</sub>}</li>
+  </ul>
+  <li>R<sub>n</sub> = total return on asset n</li>
+  <li>f<sub>n</sub> = &beta;<sub>n</sub> * &mu;<sub>B</sub> + &beta;<sub>n</sub> * &Delta;f<sub>B</sub> + &alpha;<sub>n</sub></li>
+  <ul>
+    <li>Expected excess return.</li>
+    <li>f<sub>B</sub> = &sum;n h<sub>B</sub>(n) * E{R<sub>n</sub> - (1 + i <sub>F</sub>)}</li>
+    <li>h<sub>B</sub>(n) = weight of each asset in the benchmark</li>
+    <li>&Delta;f<sub>B</sub> = f<sub>B</sub> - &mu;<sub>B</sub></li>
+  </ul>
+  <p></p>
+  <strong>E{R<sub>n</sub>} = 1 + i<sub>f</sub> + &beta;<sub>n</sub> * &mu;<sub>B</sub> + &beta;<sub>n</sub> * &Delta;f<sub>B</sub> + &alpha;<sub>n</sub></strong>
+  <p></p>
+  <li><strong>Exceptional expected return</strong></li>
+  <ul>
+    <li>&beta;<sub>n</sub> * &Delta;f<sub>B</sub> + &alpha;<sub>n</sub></li>
+    <li>** THis is the key to active managment</li>
+    <li>&beta;<sub>n</sub> * &Delta;f<sub>B</sub> measures benchmark timing</li>
+    <ul>
+      <li>this generates a single bet for or against the benchmark</li>
+    </ul>
+    <li>&alpha;<sub>n</sub> measures stock selection</li>
+  </ul>
+  <li>when modeling historical alphas and betas can be used to forecat expected return given the other paramenters</li>
+</ul>
+<p></p>
+<i>Total Risk vs Total Return</i>
+<ul>
+<li>Efficient frontier</li>
+  <ul>
+    <li>Y axis = Expected Excess Return</li>
+    <li>X Axis = Risk</li>
+  </ul>
+<i>Forecast of expected excess returns</i>
+<ul>
+  <li>**Active management starts when the managers forecast differs from the consensus**</li>
+  <strong>f<sub>n</sub> = &beta;<sub>n</sub> * f<sub>B</sub> + &alpha;<sub>n</sub></strong>
+  <ul>
+    <li>f<sub>n</sub> = forecast of expected excess return for stock n</li>
+    <li>f<sub>B</sub> = forecast of expected excess return for the benchmark. f<sub>B</sub> differs from &mu;<sub>B</sub> &rarr; the consensus estimate</li>
+    <li>&beta;<sub>n</sub> = stock n beta</li>
+    <li>&alpha;<sub>n</sub> = stock n forecast alpha. alpha is zero in consensus model</li>
+  </ul>
+</ul>
+<i>Expected Utility</i>
+<ul>
+  <li>this is the bases for choosing a portfolio since it is dependednt on risk rward trade off that is unquie to everyone</li>
+  <li>Expected Utility function</li>
+  <ul>
+    <strong>U[P] = f<sub>p</sub> - &lambda;<sub>T</sub>* &sigma;<sup>2</sup><sub>P</sub></strong>
+    <li>f<sub>p</sub> = expected excess return</li>
+    <li>&lambda;<sub>T</sub> = &mu;<sub>B</sub> / 2 * &sigma;<sup>2</sup><sub>B</sub></li>
+    <ul>
+      <li>if f = &mu; (forecast return = consensus return), ie. no new information relative to bbenchmark then &lambda;<sub>T</sub> = &mu;<sub>B</sub> / 2 * &sigma;<sup>2</sup><sub>B</sub></li>
+      <li>aversion to total risk. both systematic (benchmark) and residual (asset selection) risk</li>
+      <li>other values for risk aversion include 1/&lambda; and &lambda;/2</li>
+      <li>Goal is to find eligible portfolio with highest possible expected utility</li>
+
+    </ul>
+    <li>&sigma;<sup>2</sup><sub>P</sub> = &beta;<sup>2</sup><sub>P</sub> * &sigma;<sup>2</sup><sub>B</sub></li>
+    <ul>
+      <li>&sigma;<sup>2</sup><sub>B</sub> = variance of benchmark</li>
+      <li>I think this function is correct not 100% positive</li>
+    </ul>
+  </ul>
+  <li>Optimal Portfolio</li>
+  <ul>
+    <li>the optimal portfolio is the portfolio on the frontier that has highest risk adjusted returns</li>
+    <i>Holdings (weights) of optimal portfolio (pg 98)</i>
+    <ul>
+      <li>h<sub>p</sub> = (f<sub>Q</sub>/2 * &lambda;<sub>T</sub>*&sigma;<sup>2</sup><sub>Q</sub>) * h<sub>Q</sub> = &beta;<sub>P</sub> * h<sub>B</sub> + (IR/2 * &lambda;<sub>T</sub>) * h<sub>A</sub></li>
+      <li>IR = information ratio &rarr; measures expected residual returns to residual risk</li>
+    </ul>
+  </ul>
+  <li>expected utility criteria will lead to portfolios that are too aggressive.</li>
+  <li>typical level of risk aversion = 0.0075</li>
+  <li>example return data:</li>
+  <ul>
+    <li>f<sub>p</sub> = 27.29%</li>
+    <li>&sigma;<sub>P</sub> = 25.20%, total risk</li>
+    <li>&beta;<sub>P</sub> = 1.05</li>
+    <li>&alpha;<sub>P</sub> = 20.99%</li>
+    <li>&omega;<sub>P</sub> = 13.78%, this is the residal risk</li>
+    <li>**This is an agressive portfolio, need to get results more inline with institutional practice &rarr; need to focus on active component of return and look at active risk reward</li>
+  </ul>
+</ul>
+<p></p>
+<i>Value Added</i>
+<ul>
+  <i>Risk of Active Manager</i>
+  <li>where as above are the components of the returns these are the correponding components of the risk. They have similar features.</li>
+  <ul>
+    <li>Intrinsic = f<sub>b</sub> - &lambda;<sub>T</sub>*&sigma;<sup>2</sup><sub>B</sub></li>
+    <ul>
+      <li>risk / return of the benchmark. not under managers control</li>
+    </ul>
+    <li>Timing = &beta;<sub>PA</sub> * &Delta;f<sub>B</sub> - &lambda;<sub>BT</sub>*&beta;<sup>2</sup><sub>PA</sub>*&sigma;<sup>2</sup><sub>B</sub></li>
+    <ul>
+      <li>risk of timing the benchmark.</li>
+      <li>different risk aversion component</li>
+    </ul>
+    <li>Residual = &alpha;<sub>P</sub> - &lambda;<sub>R</sub>*&omega;<sup>2</sup><sub>P</sub></li>
+    <ul>
+      <li>risk to managers residual position</li>
+    </ul>
+    <li> VA = Timing + Residual</li>
+    <ul>
+      <li>Value Added</li>
+      <ul>
+        <strong>VA = {&beta;<sub>PA</sub> * &Delta;f<sub>B</sub> - &lambda;<sub>BT</sub>*&beta;<sup>2</sup><sub>PA</sub>*&sigma;<sup>2</sup><sub>B</sub>} + {&alpha;<sub>P</sub> - &lambda;<sub>R</sub>*&omega;<sup>2</sup><sub>P</sub>}</strong>
+      </ul>
+    </ul>
+    <li>The framework is going to mostly be ignoreing market timing and therefore asuming the risk that goes with it. Authors give reason why</li>
+  </ul>
+  <p></p>
+  <i>The Objective of Value Added Management</i>
+  <ul>
+    <li>Start with three items</li>
+    <ul>
+      <li>forecast of returns f</li>
+      <li>portfolio holding/weights h<sub>p</sub></li>
+      <li>portfolio variance &sigma;<sup>2</sup><sub>p</sub></li>
+      
+    </ul>
+  </ul>
+</ul>
+</ul>
+<p></p>
+<strong>The Information Ratio</strong>
+<ul>
+  <i>Overview</i>
+  <ul>
+    <li>the IR is the notion of the active manger success</li>
+    <li>Ex Ante vs Ex Post IR</li>
+    <ul>
+      <li>the Ex Ante IR is connotes oppurtunity</li>
+      <li>the Ex Post IR measures achievment</li>
+    </ul>
+  </ul>
+  <p></p>
+  <i>Defining Alpha</i>
+  <ul>
+    <li>Ex post, alpha is the average of the realized residual return</li>
+    <ul>
+      <li>r<sub>P</sub> = &alpha;<sub>P</sub> + &beta;<sub>P</sub> r<sub>B</sub> + &epsilon;<sub>P</sub></li>
+      <li>&theta;<sub>P</sub> = &alpha;<sub>P</sub> +&epsilon;<sub>P</sub></li>
+      <li>in ex post framework alpha and beta are realized/historical alpha beta</li>
+      <li>realized alphas are for keeping score</li>
+    </ul>
+    <li>Ex ante, alpha is a forecast of residual retunrs</li>
+    <p></p>
+    <i>Alpha of portfolio</i>
+    <ul>
+      <li>assume two stocks with &alpha;1 and &alpha;2</li>
+      <li>if we have two stock portfolio w/ holding h<sub>P</sub>1 and h<sub>P</sub>2 then alpha of portfolio is </li>
+      <strong>&alpha;<sub>P</sub> = h<sub>P</sub>1 * &alpha;1 + h<sub>P</sub>2 * &alpha;2</strong>
+    </ul>
+    <li>alpha of benchmark &alpha;<sub>B</sub> = 0</li>
+    <li>alpha of risk free  &alpha;<sub>F</sub> = 0</li>
+  </ul>
+  <i>The Information Ratio</i>
+  <ul>
+    <strong>IR = &alpha;<sub>P</sub>/ &omega;<sub>P</sub></strong>
+    <li>ratio of annualized residual return to annualized residual risk</li>
+    <li>at top quality IR is 0.5 or above</li>
+  </ul>
+  <li>Active Holding  = portfolio holding - benckmark holdings</li>
+  <li> Active Variance (fotnote pg 116)</li>
+  <ul>
+    <strong>&psi;<sup>2</sup><sub>P</sub> = h<sup>T</sup><sub>PA</sub> * V * h<sub>PA</sub></strong>
+    <li>&psi;<sup>2</sup> = active variance</li>
+    <li>h<sup>T</sup><sub>PA</sub></li>
+    <li>h<sub>PA</sub> = h<sub>P</sub> - h<sub>B</sub></li>
+    <ul>
+      <li>h<sub>P</sub> and h<sub>B</sub> are the holding in the mangaged and benchmark portfolios</li>
+    </ul>
+  </ul>
+  <li>IR depends on time horizon</li>
+  <ul>
+    <li>return grows with time</li>
+    <li>risk (standard deviation) will grow as the sqrt of horizon</li>
+    <li>quarterly IR is half the annual IR</li>
+    <li>monthly IR is 1/&sqrt;12 the size of annual IR</li>
+  </ul>
+  <p></p>
+  <i>Aggresivness vs Oppurtunity and optimal risk</i>
+  <ul>
+    <li>graph resudual frontier pg 117</li>
+    <li>value added cureve supper imposed on the residual frontier (pg 120)</li>
+    <li>**formal problem is to max &alpha; - &lambda; * &omega;<sup>2</sup> subject to the constraint &alpha;/&omega; &le; IR</li>
+    <strong>&omega;* = IR/(2*&lambda;<sub>R</sub>)</strong>
+    <ul>
+      <li>optimal level of risk</li>
+    </ul>
+  </ul>
+  <p></p>
+  <i>Optimal Portfolio</i>
+  <ul>
+    <li>VA* = (&omega;<sup>*</sup> * IR)/2</li>
+  </ul>
+</ul>
+<strong>Fundemental law of Active Management</strong>
+<ul>
+  <li>this law give a very good approximation to the information ratio</li>
+  <li>BR = breadth. number of independent forecasts of exceptional returns made each year</li>
+  <li>IC = information coefficient, skill/measures the quality of investment decisions. the correlation of each forecast w/ actual outcomes</li>
+  <li>IR = IC * &Sqrt;BR</li>
+  <li>new optimal level of risk</li>
+  <ul>
+    <strong>&omega;* = IC * &Sqrt;BR/(2*&lambda;<sub>R</sub>)</strong>
+  </ul>
+  <li>new value added </li>
+  <ul>
+    <strong>VA* = (IC<sup>2</sup> * BR)/4&lambda;<sub>R</sub></strong>
+  </ul>
+  <li>law is designed to give insight into active management &rarr; not operational tool</li>
+</ul>
+<p></p>
+<i>Law w/ multiple portfolios pg(154-155)</i>
+<ul>
+  <li>for multiple classes of assets the IR is additive</li>
+  <strong>IR<sup>2</sup> = BR1 * IC<sup>2</sup><sub>2</sub> + BR2 * IC<sup>2</sup><sub>2</sub></strong>
+  <li>.6 = .03*&Sqrt;400</li>
+  <li>.2 = .01*&Sqrt;4</li>
+  <li>IR = &Sqrt;(.6<sup>2</sup>+.2<sup>2</sup>) = 0.63</li>
+</ul>
+<li>sources of information can be correlated and need to be independent in order to derive useful IC (pg 158)</li>
+<ul>
+  <li>IC(com) = IC*&Sqrt;(2/(1+&gamma;))</li>
+  <li>&gamma; = correlation between 2 info sources</li>
+</ul>
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+</div>
+{% endblock content %}

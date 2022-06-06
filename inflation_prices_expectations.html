@@ -1,0 +1,345 @@
+{% extends "economic_model/base.html"%}
+
+{% block head %}
+<title>Economic Model</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+{% endblock head %}
+
+{% block title %}
+  <h1 class="h2">Inflation, Prices, and Expectations</h1>
+{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+
+<strong>Overveiw</strong>
+<ul>
+  <li>Macroeconomic analysis thinks about prices in 4 main ways</li>
+  <ul>
+    <li><strong>Inflation:</strong> the sustained increase of aggregate price index</li>
+    <li><strong>Change in relative prices:</strong> changes in price of good/service relative to the price of another</li>
+    <li><strong>Interest rates:</strong> cost of borrowing. Cost of spending money now and paying later. Profit of delayed consumption.</li>
+    <li><strong>Exchange rates:</strong>prince of one currency in terms of another</li>
+  </ul>
+</ul>
+<strong>Inflation</strong>
+<ul>
+  <li><strong>Phillips Curve</strong></li>
+  <ul>
+    <li>link between inflation and unemployment rate</li>
+  </ul>
+  <li><strong>Expectation Augment Phillips Curve</strong></li>
+  <ul>
+    <li>Natural Rate of Unemployment <strong>(NAIRU)</strong></li>
+    <ul>
+      <li>at NAIRU, most willing workers are employed, and residual unemployment is either frictional (workers between jobs) or structural (institutional impediments)</li>
+      <li>price expectations are incorporated into wage negotiations. unemployment rate &darr;, wage &uarr;, prices &uarr;, wage &uarr;, etc.</li>
+      <li>Potential GDP is associated with UR at NAIRU</li>
+    </ul>
+  </ul>
+  <li>inflation imposes menu costs</li>
+  <li>the equilibrating effect of inflation would not occur if wages and prices grew at same rate</li>
+  <li><strong>Deflation</strong></li>
+  <ul>
+    <li></li>
+  </ul>
+  <li>inflation should be low and steady</li>
+  <li>deflation is too hard to counter since prices are sticky</li>
+  <li>inflation should be high enough to facilitate the small change in relative prices that are economically warrented but not too high that people ditch money</li>
+  <li>2 percent inflation is target for almost all advanced economies</li>
+</ul>
+<p>Measuring inflation</p>
+<ul>
+  <li><strong>GDP Deflator</strong></li>
+  <ul>
+    <li>captures prices of goods/services the country produces</li>
+    <li>does not reflect import prices but will include export prices</li>
+    <li>Ratio of Nominal GDP / Real GDP</li>
+    <li>Real GDP: sum of production in all economy measured at prices in some base year</li>
+    <li>Nominal GDP: sum of production measured at current prices</li>
+  </ul>
+  <li><strong>PCE Deflator</strong></li>
+  <ul>
+    <li>deflator of the PCE component of GDP</li>
+    <li>does not include investment, import, export, government components </li>
+    <li>Fed target measure</li>
+  </ul>
+  <li><strong>CPI</strong></li>
+  <ul>
+    <li>captures prices on goods/services consumed</li>
+    <li>excludes exports but includes imported goods</li>
+    <li>weighted average of prices paid by households for consumer goods</li>
+    <li>***can differ from gdp deflator due to changes in the external terms of trade. export price index / inport price index</li>
+    <li>if export prices outpace import prices (terms of trade gain), GDP deflator will rise more quickly than CPI</li>
+  </ul>
+  <li>Diverging GDP Deflator and CPI</li>
+  <ul>
+    <li>the two measures can diverge due to term af trade (export vs import prices)</li>
+    <li>when divergence happen policy questions arise.</li>
+  </ul>
+</ul>
+<p>Analyzing Relative Prices</p>
+<ul>
+  <li>relative prices are used to for production and consumption desicion making, and to asses a countries competitivness</li>
+  <li>Output prices and INput Costs</li>
+  <ul>
+    <li>Total nominal income</li>
+    <ul>
+      <p><strong>Y = W x L + R x K</strong></p>
+      <li>Y = total income</li>
+      <li>W = wage rate</li>
+      <li>L = labor input</li>
+      <li>R = rental cost of capital</li>
+      <li>K = capital inoput</li>
+    </ul>
+    <li>Unit Labor Cost</li>
+    <ul>
+      <p><strong>P = ULC + UKC</strong></p>
+      <li>P = GDP deflator. Nominal income / Real Income</li>
+      <li>ULC = Unit Labor cost</li>
+      <ul>
+        <li>ULC = W x L/Y<sub>r</sub> = W / PROD, where PROD = productivity</li>
+        <li>analyzed as rates of cchange (first diference in logs)</li>
+        <ul>
+          <li><strong>ulc = w - prod</strong></li>
+          <li>how the wage is realted to productivity</li>
+          <ul>
+            <li>low wages can be associated with high ULC if PROD is low</li>
+          </ul>
+        </ul>
+      </ul>
+      <li>UKC = Unit capital cost</li>
+      <li>Understanding Unit Labor Cost</li>
+      <ul>
+        <li>labor costs are the major share of income and determine profitability</li>
+        <li>ULC and inflation</li>
+        <ul>
+          <li>rise in wages does not cause inflation if productivity also increases. this just reflects worker being compensated for high productivity. Not reflected in GDP deflator</li>
+          <li>if wages outpace productivity, ULC rise oputs pressure on GDP deflator as producers resist compression of profit margins</li>
+          <li>since ULC is nominal it tend to grow with inflation. Therefore analyse must compare rise in ULC to target inflation rate. If consistent w/ target ULC just keeping up with inflation</li>
+          <li>in cases where ULC outpaces target inflation, analysis should asess wether ULC increase is moving towards or away from equiblibrium.</li>
+          <ul>
+            <li>***if profit are abnormally high, high ULC increase may reflect the lower of profits to a normal level.</li>
+          </ul>
+        </ul>
+        <li>ULC and Profits/Income Distribution</li>
+        <ul>
+          <li>if ULC rises to much and capital/other income gets squeezed, may be bad for future investment</li>
+          <li>if UKC outpaces ULC, consumption may slow since wage income has higher propensity to consume</li>
+          <li>rise in ULC and away from UKC may move capital offshore since its more mobile than labor</li>
+          <li>rise in ULC can cause a risk in layoffs if prices can't rise</li>
+          <li>rise in ULC can cause inflation</li>
+        </ul>
+        <li>ULC and international competitivness</li>
+        <ul>
+          <li>Measuring ULC inflation to in flation in GDP deflator can inform about competitivness and profitability</li>
+          <li>any increase in ULC that exceeds deflator calls into question whether country can sustain profit for investors</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+  <li>Traded and Nontraded Goods in the CPI</li>
+  <ul>
+    <li>Analyzing CPI</li>
+    <ul>
+      <li>CPI can be broken down into two price categories</li>
+      <ul>
+        <li>P<sub>w</sub> = price of traded goods and services</li>
+        <li>P<sub>n</sub> = price of nontraded goods and services</li>
+      </ul>
+      <li>P<sub>w</sub> is normally traded as priced at the international price (US dollar) multiplied by the exchange rate E</li>
+      <li>Particitioning into two prices allows for beter analysis of CPI</li>
+      <ul>
+        <li>we can understand how the index changes subject to domestic  demand pressures or international markets</li>
+        <ul>
+          <li>Example: small country finds oil. Global price of oil doesn't change but domestic nontrade prices (ie housing) will rise due to influx of capital.</li>
+          <li>Assumes flex exchange rate.</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+  <li>Relative Prices and Competitivness</li>
+  <ul>
+    <li>Purchasing Power Parity (PPP)</li>
+    <ul>
+      <li>Big Mac Index</li>
+      <li>Analyzing exchange rates with broad index</li>
+      <ul>
+        <li>if inflation in Mexico is 10% and 2% in US. Any depreciation of peso of less than 8 percent will constitute a real appreciation of the peso and a loss of competitivness</li>
+      </ul>
+    </ul>
+    <li><strong>Analyzing Competitivness</strong></li>
+    <ul>
+      <li>ULC Measures of Competitivness</li>
+      <ul>
+        <li>Wage rates is important</li>
+        <li>profits are equal to markups over cost</li>
+        <li>profits can be proxied as value-added prices minus ULC</li>
+        <li>the relevant price (or cost) index to use in a calcualtion of the real exchange rate (RER) is the ULC index</li>
+        <li>***ULC based index of RER focuses on how price and cost signals influence the allocation of resources across countries</li>
+        <li>Simple example of two countries:</li>
+        <ul>
+          <li>comapny decisding to locate new plant in Texas or Mexico</li>
+          <p></p>
+          <strong>RER = ULC(mex)/[ULC(tex).E]</strong>
+          <p></p>
+          <li>RER = real exchange rate</li>
+          <li>E = local currentcy price of dollar</li>
+          <li>if ULC increases in Mexico, Mexico competitivness deteriorates</li>
+          <li>if ULC rises in Texas or peso depreciates against US dollar (E rises) Mexicos RER &darr; and Mexico becomes more competitive</li>
+          <li>more often then not when assessing competitivness, it is against  a group of countries not just one competitor</li>
+        </ul>
+        <li><strong>Real Effective Exchange Rates (REER)</strong></li>
+        <ul>
+          <li>measure needs to weight countries in the REER formulation</li>
+          <li>no weighting scheme is ideal and there are various scheme can be considered</li>
+          <li>Example: Mexico REER with 3 other emerging maret economies</li>
+          <br></br>
+          <strong>REER<i>mex</i> = [ULC(mex) / &sum;&omega;<sub>i</sub>ULC<sub>i</sub>] x [&sum;{&omega;<sub>i</sub>(E<sub>i</sub>/E(mex))}]</strong>
+          <ul>
+            <li>E<sub>i</sub> = units of currency of country i per US dollar (in index form)</li>
+          </ul>
+          <br></br>
+          <li>when REER rises Mexico becomes less competitive</li>
+          <li>use an index of ULC for each country to make the above assessment</li>
+          <li>use index of exchange rate for E</li>
+          <li>***since quality and bran of good differ across boarders we cant infer much from the level of REER. Need to examine change.</li>
+          <li>reall appreciation (rise in REER) should be examined for loss of competitiveness</li>
+          <li>if rise is indicated then analyst should examine a few other things</li>
+          <ul>
+            <li>direct foriegn investment declines</li>
+            <li>loss of export market share</li>
+            <li>increase of foreign imports</li>
+          </ul>
+        </ul>
+      </ul>
+      <li>Price Index or Traded-Nontraded Competitiveness</li>
+      <ul>
+        <li>the traded-nontraded price measure of the real exchange rate summerizes conditions that will lead internal resource flow in the economy</li>
+        <li>if there is a large increase in demand (large gov spending for example) for traded good, and output is near potential then more imports/less exports will be needed</li>
+        <li>but if it is demand for nontraded goods then reallcoation needs to occur</li>
+        <li>internal terms of trade <strong>E.P<sub>traded</sub>/P<sub>nontraded</sub></strong> = internal terms of trade</li>
+        <ul>
+          <li>price ratio of traded goods adjusted for exchange rate divided by nontraded good. aka relative price</li>
+          <li>E = domestic current price of foreign currency. E increases = deprecition</li>
+        </ul>
+        <li>if production is at capcity and demand for nontraded goods increase, then domestic production shift to nontraded goods production</li>
+        <li>then, since there is less domestic production of traded goods demand for traded goods will be satidfied by increases in imports</li>
+        <li>*****it is difficults to do this analysis because it is hard to fix proxies for traded and nontraded goods prices</li>
+        <ul>
+          <li>attempt to disagregate CPI</li>
+          <ul>
+            <li>services component for proxy for nontraded goods</li>
+            <li>goods component for proxy for nontraded goods</li>
+          </ul>
+          <li>compare broad price measure (CPI / GDP deflator) to other countries, adjusting for exchange rates</li>
+          <ul>
+            <li>use CPI or GDP deflator in REER calculation instead of ULC</li>
+            <li>intuition here is that broad inflation reflects traded and nontraded goods and that traded goods prices are equal cross country accounting for exchange rate. therefore assessment reflects difference in nontraded goods.</li>
+            <li>hard to assess is price shift is problematic</li>
+          </ul>
+          <li>Dutch Diseas</li>
+          <ul>
+            <li>"resource curse"</li>
+            <li>if at full capacity, and natural resource is found prices for nontraded goods can rise quickly and it can be destablising</li>
+          </ul>
+          <li>Balssa-Samuelson effect</li>
+          <ul>
+            <li>EM is growing fast due to new tech provided by developed country into traded goods sector</li>
+            <li>productivity gains in traded goods sector outpace nontraded goods sector</li>
+            <li>hire productivity for traded goods pushes up wages and demand for nontraded goods and thus labor wages for nontraded goods</li>
+            <li>wages are then hire than productivity and inflation happens in non traded goods sector</li>
+          </ul>
+        </ul>
+      </ul>
+      <li>Export Unit Values</li>
+      <ul>
+        <li>useful to asses competitiveness where countries have a degree of monopoly power and thus influence on prices</li>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<p>Interest Rates and Expectations</p>
+<ul>
+  <li>Intertemporal decisions and international linkages affect interest rates and expectations</li>
+  <li>interest rates are the prices that link time periods</li>
+  <li>Interest Rates and Inflation Expectations</li>
+  <ul>
+    <li>Interest rates are the intertemporal terms of trade</li>
+    <li>inflation expectations makes decision to consume now or wait</li>
+    <li>if expected riase in inflation is hire than interest rate then you should buy</li>
+  </ul>
+  <li>Assessing inflation expectations</li>
+  <ul>
+    <li>Assume inflation is static</li>
+    <li>Adaptice - assess inflation based on the recent passed of inflation</li>
+    <li>Rational - based on model of economy.</li>
+    <li>Data-based - derived from surveys or financial market data. (TIPS - Regular T-Bills)</li>
+    <li>***central banks affect very short-term nominal interest rates in order to influence short-term real interest rates and then inflation or deflation</li>
+    <strong>r = i - &pi;</strong>
+    <li>r = real interst rate</li>
+    <li>i = nominal interest rate</li>
+    <li>&pi; inflation rate , &pi;<sup><i>e</i></sup> = expected inflation rate</li>
+  </ul>
+  <li>International Linkages</li>
+  <ul>
+    <li>for countries with external fianncial flows, interest rates and exchange rates are determind simultaneously</li>
+    <li>they link domestic developments with those in global financial markets</li>
+    <li>investment decision in the international arena depend on both interest rate of home and abroad countries and the expected exchange rate</li>
+    <li>US-Mex breakeven equilibrium position:</li>
+    <ul>
+      <p>Uncovered interest parity</p>
+      <strong>1 + <i>i<sub>us.t</sub></i> = (E<sub>t</sub>)/E<sup><i>e</i></sup><sub>t+1</sub>)(1 + <i>i<sub>mex.t</sub></i>)/(1 = rp)</strong>
+      <li>i nominal interest rate</li>
+      <li><i>e</i> = expectations</li>
+      <li>rp = risk premium. risk for the unknown exchange rate</li>
+    </ul>
+    <li>How does a forwad market hedge the risk on exchange rates?</li>
+    <ul>
+    <strong>1 + <i>i<sub>us.t</sub></i> = (E<sub>t</sub>)/F<sup><i>t+1</i></sup><sub>t</sub>)(1 + <i>i<sub>mex.t</sub></i>)/(1 = rp)</strong>
+    <li>F<sup><i>t+1</i></sup><sub>t</sub> = forward exchange rate for t + 1 quoted at t</li>
+    <li>Explaination - say in time t + 1 you know you will have 100.E<sub>t</sub>(1 + <i>i<sub>mex.t</sub></i>), you can sell that many pesos on the farward market at the forward exchange F<sup><i>t+1</i></sup><sub>t</sub></li>
+    <li>in pratice the difference between F<sup><i>t+1</i></sup><sub>t</sub> and E<sup><i>e</i></sup><sub>t+1</sub> is close to zero</li>
+    <li>F<sup><i>t+1</i></sup><sub>t</sub> is therefore a close proximate the expected future exchange rate</li>
+    </ul>
+    <li><strong>Impossible Trinity</strong></li>
+    <ul>
+      <li>a government cannot control exchange rates, have free international flow and control exchange rates all at the same time.</li>
+      <li>[(1 + <i>i<sub>mex.t</sub></i>)/(1 + <i>i<sub>us.t</sub></i>)] = (E<sup><i>e</i></sup><sub>t+1</sub>/E<sub>t</sub>)(1 + rp)</li>
+      <li>assuming rp = 0, the above equation shows that expected exchange rate is linked to nominal interest rates</li>
+      <li>it can be used to show that a expected depreciation in the peso over any period is equal the difference nominal interst rates yeilds between risk equivelant bonds</li>
+      <li>if the peso is expected to depreciate (E<sup><i>e</i></sup>&uarr;), then the mexican interest rate ()<i>i<sub>mex</sub></i>) must increase for the equation to hold.</li>
+      <li>if rp is positive then this is even higher</li>
+      <li>additionally if there was a sudden risk premium increase, then there would need to be a sudden depreciation E<sub>t</sub>&uarr;, or a hike interest rates</li>
+      <li>a country cannot control bioth interest rates and exchange rates unless it limits international financial flows</li>
+    </ul>
+  </ul>
+</ul>
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+</div>
+{% endblock content %}
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for post in posts %}
+      <h1>{{ post.author }}</h1>
+      <p>{{ post.content }}</p>
+    {% endfor %}
+    <p>
+      <a href="md/">Model Development</a>
+    </p>
+  </body>
+</html> -->
